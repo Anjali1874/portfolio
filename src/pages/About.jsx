@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Modal from '../components/Modal';
 import '../styles/About.css';
 import '../styles/Modal.css';
+import aboutMap from '../assets/aboutMap.png';
 
 function About() {
   const [activeModal, setActiveModal] = useState(null);
@@ -69,7 +70,7 @@ function About() {
           {/* Map Wrapper with 3D Depth */}
           <div className="relative w-full h-full group">
             <img 
-              src="/src/assets/aboutMap.png" 
+              src={aboutMap}
               alt="Journey Map" 
               className="w-full h-full object-contain drop-shadow-[0_35px_50px_rgba(0,0,0,0.9)] transition-transform duration-700 group-hover:scale-[1.02]"
               style={{

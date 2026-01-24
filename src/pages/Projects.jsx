@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/Projects.css";
 import portfolioVideo from "../assets/portfolio.mp4";
-
+import projectImg from "../assets/project.png";
 
 function Projects() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -33,7 +33,7 @@ function Projects() {
       id="projects"
       className="projects-container"
       style={{
-        backgroundImage: "url(/src/assets/project.png)",
+        backgroundImage: `url(${projectImg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
