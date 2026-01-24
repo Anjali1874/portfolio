@@ -1,0 +1,144 @@
+.projects-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+/* Fixed laptop screen (only exists in Projects component) */
+.laptop-screen {
+  position: sticky;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 45%;
+  height: 57%;
+  background: rgba(10, 10, 10, 0.88);
+  border-radius: 14px;
+  padding: 16px;
+  z-index: 10;
+  overflow: hidden;
+
+  backdrop-filter: blur(8px);
+  box-shadow:
+    inset 0 0 25px rgba(255, 255, 255, 0.05),
+    0 0 40px rgba(255, 105, 180, 0.2);
+}
+
+.projects-content {
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-title {
+  text-align: center;
+  color: #ffb6ff;
+  margin-bottom: 10px;
+}
+
+/* Search */
+.search-container {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.search-box {
+  width: 100%;
+  padding: 8px 35px 8px 10px;
+  border-radius: 6px;
+  border: none;
+  background: #1f1f1f;
+  color: white;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 6px;
+}
+
+/* Projects Grid */
+.projects-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  height: fit-content;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  background: rgba(255, 182, 255, 0.18);
+}
+
+.project-name {
+  color: #ffb6ff;
+  font-weight: 600;
+}
+
+.project-description {
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+/* Video Mode */
+.video-player {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-video {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 10px;
+  background: black;
+}
+
+.back-btn {
+  width: fit-content;
+  padding: 5px 10px;
+  border: 1px solid #ffb6ff;
+  background: transparent;
+  color: #ffb6ff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background: #ffb6ff;
+  color: black;
+}
+
+/* Hide scrollbar for Chrome, Edge, Safari */
+.laptop-screen::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.laptop-screen {
+  scrollbar-width: none;
+  -ms-overflow-style: none;  /* IE & Edge */
+}
