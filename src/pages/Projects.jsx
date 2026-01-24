@@ -20,6 +20,18 @@ function Projects() {
       description: "Creative portfolio with animations",
       video: portfolioVideo,
     },
+    {
+      id: 3,
+      name: "E-commerce Platform",
+      description: "Full-stack shopping experience",
+      video: portfolioVideo,
+    },
+    {
+      id: 4,
+      name: "Task Manager",
+      description: "Productivity app with React",
+      video: portfolioVideo,
+    },
   ];
 
   const filteredProjects = projectsData.filter(
@@ -41,10 +53,12 @@ function Projects() {
       <div className="bg-overlay"></div>
 
       <div className="laptop-screen">
+        <div className="laptop-bezel"></div>
+        
         <div className="projects-content">
           {!selectedProject ? (
             <>
-              <h2 className="projects-title text-4xl font-bold">My Projects</h2>
+              <h2 className="projects-title">My Projects</h2>
 
               <div className="search-container">
                 <input
@@ -71,7 +85,10 @@ function Projects() {
                   </div>
                 ))}
               </div>
-              <h1>Click on a project card to watch the video</h1>
+              
+              <div className="instruction-text">
+                Click on a project card to watch the video
+              </div>
             </>
           ) : (
             <div className="video-player">
@@ -89,8 +106,10 @@ function Projects() {
                 className="project-video"
               />
 
-              <h3>{selectedProject.name}</h3>
-              <p>{selectedProject.description}</p>
+              <div className="video-info">
+                <h3 className="video-title">{selectedProject.name}</h3>
+                <p className="video-description">{selectedProject.description}</p>
+              </div>
             </div>
           )}
         </div>

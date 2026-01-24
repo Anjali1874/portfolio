@@ -1,36 +1,269 @@
-@keyframes fade-in-up {
+/* Skills.css - Enhanced Styles for Skills Component */
+
+/* Font Import - Google Font Fredoka */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+
+/* Apply Fredoka font */
+.font-fredoka {
+  font-family: 'Fredoka', sans-serif;
+}
+
+/* Fade-in-up animation for description box */
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translate(-50%, 20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes glow-pulse {
-  0%, 100% {
-    filter: drop-shadow(0 0 5px currentColor);
-  }
-  50% {
-    filter: drop-shadow(0 0 15px currentColor);
+    transform: translate(-50%, 0);
   }
 }
 
 .animate-fade-in-up {
-  animation: fade-in-up 0.3s ease-out;
+  animation: fadeInUp 0.3s ease-out forwards;
 }
 
+/* Skill bubble hover effects */
 .skill-bubble {
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.skill-bubble:hover {
-  z-index: 30;
+/* Enhanced pulse animation for particles */
+@keyframes customPulse {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.2);
+  }
 }
 
-/* Ensure canvas doesn't interfere with mouse events */
+/* Custom ping animation for rings */
+@keyframes customPing {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  75%, 100% {
+    transform: translate(-50%, -50%) scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+.skill-bubble * {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Category legend glow effect */
+.category-badge {
+  position: relative;
+}
+
+.category-badge::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: inherit;
+  filter: blur(8px);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+/* Canvas responsive container */
 canvas {
-  pointer-events: none !important;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Backdrop blur support fallback */
+@supports not (backdrop-filter: blur(12px)) {
+  .backdrop-blur-md {
+    background-color: rgba(15, 23, 42, 0.98) !important;
+  }
+}
+
+/* Mobile touch optimization */
+@media (hover: none) and (pointer: coarse) {
+  .skill-bubble {
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
+  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for webkit browsers */
+#skills::-webkit-scrollbar {
+  width: 8px;
+}
+
+#skills::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+#skills::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 4px;
+}
+
+#skills::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  /* Ensure description box stays within viewport */
+  .animate-fade-in-up {
+    max-width: calc(100vw - 2rem);
+  }
+  
+  /* Optimize touch targets */
+  .skill-bubble {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  /* Reduce motion for better performance on mobile */
+  @media (prefers-reduced-motion: reduce) {
+    .skill-bubble,
+    .skill-bubble * {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  /* Desktop specific enhancements */
+  .skill-bubble:hover {
+    z-index: 30 !important;
+  }
+}
+
+/* High DPI displays optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  canvas {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* Dark mode specific adjustments (if needed) */
+@media (prefers-color-scheme: dark) {
+  /* Already optimized for dark mode */
+}
+
+/* Accessibility - Focus states */
+.skill-bubble:focus-visible {
+  outline: 2px solid #00d4ff;
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+/* Print styles */
+@media print {
+  #skills {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .skill-bubble {
+    break-inside: avoid;
+  }
+  
+  canvas {
+    display: none;
+  }
+}
+
+/* Loading state animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Utility classes */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Performance optimization */
+.skill-bubble,
+.skill-bubble > * {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Floating animation for particles (optional enhancement) */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Gradient animation for background */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Container glow effect (optional) */
+.skill-network-glow {
+  position: relative;
+}
+
+.skill-network-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 212, 255, 0.05) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  opacity: 0.5;
 }
