@@ -56,7 +56,7 @@ function About() {
       <section className="w-full min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 relative flex flex-col justify-center items-center py-10 px-4">
         
         <div className="relative z-10 text-center mb-8">
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-4 font-fredoka drop-shadow-[0_5px_15px_rgba(255,105,180,0.3)]">
+          <h1 className="hero-title mb-2">
             My Journey
           </h1>
           <p className="text-xl text-pink-400 font-fredoka animate-pulse">

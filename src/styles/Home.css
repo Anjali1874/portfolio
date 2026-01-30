@@ -171,6 +171,19 @@
   box-shadow: 0 6px 25px rgba(255, 105, 180, 0.5);
   text-transform: uppercase;
   letter-spacing: 1px;
+  animation: cta-float 4.5s ease-in-out infinite;
+}
+
+@keyframes cta-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .cta-hero-button:hover {

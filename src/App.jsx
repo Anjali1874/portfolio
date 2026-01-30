@@ -13,6 +13,7 @@ import Projects from './pages/Projects'
 import FAQs from './pages/FAQs'
 import Experience from './pages/Experience'
 import FlashLoadingScreen from './components/FlashLoadingScreen' // Ensure the path is correct
+import AnimatedPinDemo from './components/AnimatedPinDemo';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);

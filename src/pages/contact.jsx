@@ -1,7 +1,32 @@
+
 import { useState } from "react";
+import resume from "../public/Anjali_Kumbhar_Resume.pdf";
+
+
 
 function Contact() {
   const [rating, setRating] = useState(0);
+  const [showToast, setShowToast] = useState(false);
+
+  const email = "kumbharanjali196@gmail.com";
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 2000);
+    } catch (err) {
+      // fallback for older browsers
+      const textarea = document.createElement("textarea");
+      textarea.value = email;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 2000);
+    }
+  };
 
   return (
     <>
@@ -9,6 +34,12 @@ function Contact() {
         id="contact"
         className="relative min-h-screen w-full flex items-center justify-center px-4 sm:px-6 py-20"
       >
+        {/* Toast Notification */}
+        {showToast && (
+          <div className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 bg-emerald-600 text-white px-6 py-3 rounded-xl shadow-lg animate-fade-in-out">
+            Email copied!
+          </div>
+        )}
         {/* Main Card */}
         <div className="relative z-10 w-full max-w-6xl rounded-3xl border border-white/10 bg-slate-900/70 backdrop-blur-xl shadow-[0_0_60px_rgba(217,70,239,0.25)] p-6 sm:p-10">
           
@@ -33,22 +64,23 @@ function Contact() {
               >
                 <span className="text-xl">🔗</span>
                 <span className="font-medium">LinkedIn</span>
+                <span className="sr-only">(opens in new tab)</span>
               </a>
 
               {/* Email */}
-              <a
-                href="mailto:kumbharanjali196@gmail.com"
-                className="w-full flex items-center gap-3 px-6 py-4 rounded-xl border border-purple-400/40 text-purple-300 hover:bg-purple-400/10 transition-all shadow-[0_0_20px_rgba(168,85,247,0.25)] break-all"
-              >
-                <span className="text-xl">✉️</span>
-                <span className="font-medium">
-                  kumbharanjali196@gmail.com
-                </span>
-              </a>
+              <div className="flex gap-2">
+                <a
+                  href={`mailto:${email}`}
+                  className="flex-1 flex items-center gap-3 px-6 py-4 rounded-xl border border-purple-400/40 text-purple-300 hover:bg-purple-400/10 transition-all shadow-[0_0_20px_rgba(168,85,247,0.25)] break-all"
+                >
+                  <span className="text-xl">✉️</span>
+                  <span className="font-medium">{email}</span>
+                </a>
+              </div>
 
               {/* Resume Download */}
               <a
-                href="/Anjali_Kumbhar_Resume.pdf"
+                href={resume}
                 download
                 className="w-full flex items-center gap-3 px-6 py-4 rounded-xl border border-emerald-400/40 text-emerald-300 hover:bg-emerald-400/10 transition-all shadow-[0_0_20px_rgba(52,211,153,0.25)]"
               >

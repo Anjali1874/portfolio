@@ -24,7 +24,7 @@ function Navbar() {
           className="flex items-center gap-2 text-lg sm:text-xl md:text-2xl font-black tracking-widest group whitespace-nowrap"
         >
           <span className="bg-gradient-to-r from-pink-400 to-red-500 bg-clip-text text-transparent">
-            CreativeGirl
+            AK
           </span>
         </button>
 

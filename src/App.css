@@ -229,3 +229,16 @@ body {
   pointer-events: none;
   transform: translateY(-50%);
 }
+.perspective-1000 {
+  perspective: 1000px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+.font-handwriting {
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Optional: Add a slight jitter/wiggle to the text to simulate manual writing */
+.handwriting {
+  filter: url(#pencilTexture); /* If using SVG filters */
+}
