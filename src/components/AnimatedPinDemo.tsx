@@ -45,16 +45,15 @@ const cards = [
 export function AnimatedPinDemo() {
   const [hovered, setHovered] = React.useState<number | null>(null);
   return (
-    <div className="min-h-[30rem] w-full flex flex-wrap gap-6 items-center justify-center p-4">
+    <div className="min-h-[30rem] w-full flex flex-wrap gap-4 sm:gap-6 items-center justify-center p-2 sm:p-4">
       {cards.map((card, i) => (
         <PinContainer
           key={card.title}
           title={card.title}
-          href={undefined}
         >
           <div
             className={
-              `relative flex flex-col p-5 tracking-tight w-[90vw] max-w-xs sm:w-[18rem] sm:h-[18rem] h-[60vw] max-h-80 rounded-2xl ` +
+              `relative flex flex-col p-3 sm:p-5 tracking-tight w-full max-w-[95vw] sm:max-w-xs md:w-[18rem] md:h-[18rem] h-[48vw] min-h-[12rem] max-h-80 rounded-2xl ` +
               `bg-[rgba(15,23,42,0.85)] border border-pink-400/30 shadow-[0_4px_32px_0_rgba(236,72,153,0.10)] backdrop-blur-xl group cursor-pointer transition-all duration-300 font-fredoka`
             }
             onMouseEnter={() => setHovered(i)}
@@ -65,39 +64,37 @@ export function AnimatedPinDemo() {
             </h3>
             {/* Show logos and a prompt when not hovered */}
             {hovered !== i && (
-              <div className="flex-1 w-full flex flex-col items-center justify-center gap-4">
-                <div className="flex flex-wrap gap-4 justify-center items-center mb-2">
+              <div className="flex-1 w-full flex flex-col items-center justify-center gap-3">
+                <div className="flex flex-wrap gap-2 sm:gap-4 justify-center items-center mb-2">
                   {card.title === 'Frontend' && (
                     <>
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-10 h-10" />
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-10 h-10" />
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" className="w-10 h-10" />
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" className="w-10 h-10" />
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" className="w-10 h-10 bg-white rounded-full p-1" />
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="Tailwind CSS" className="w-10 h-10" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-8 h-8 sm:w-10 sm:h-10" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-8 h-8 sm:w-10 sm:h-10" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" className="w-8 h-8 sm:w-10 sm:h-10" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" className="w-8 h-8 sm:w-10 sm:h-10" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full p-1" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="Tailwind CSS" className="w-8 h-8 sm:w-10 sm:h-10" />
                     </>
                   )}
                   {card.title === 'Backend' && (
                     <>
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-10 h-10" />
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" className="w-10 h-10 bg-white rounded-full p-1" />
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="w-10 h-10" />
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI" className="w-10 h-10" />
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" className="w-10 h-10" />
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" className="w-10 h-10" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-8 h-8 sm:w-10 sm:h-10" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full p-1" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="w-8 h-8 sm:w-10 sm:h-10" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI" className="w-8 h-8 sm:w-10 sm:h-10" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" className="w-8 h-8 sm:w-10 sm:h-10" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" className="w-8 h-8 sm:w-10 sm:h-10" />
                     </>
                   )}
                   {card.title === 'DevOps' && (
                     <>
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" className="w-10 h-10" />
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" className="w-10 h-10" />
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS" className="w-10 h-10 bg-white rounded-full p-1" />
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jwt/jwt-plain.svg" alt="JWT" className="w-10 h-10" />
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg" alt="CI/CD" className="w-10 h-10" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" className="w-8 h-8 sm:w-10 sm:h-10" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" className="w-8 h-8 sm:w-10 sm:h-10" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg" alt="CI/CD" className="w-8 h-8 sm:w-10 sm:h-10" />
                     </>
                   )}
                 </div>
-                <span className="text-base text-white/60 font-medium">Hover to see all skills</span>
+                <span className="text-sm sm:text-base text-white/60 font-medium">Hover to see all skills</span>
               </div>
             )}
             <AnimatePresence>
